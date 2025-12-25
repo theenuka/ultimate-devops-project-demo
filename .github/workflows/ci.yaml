@@ -24,10 +24,10 @@ jobs:
           run: |
             cd src/product-catalog
             go mod download
-            go build -0 product-catalog-service main.go
+            go build -o product-catalog-service main.go
 
         - name: unit tests
-          run: 
+          run: |
             cd src/product-catalog
             go test ./...
 
@@ -39,7 +39,7 @@ jobs:
           uses: actions/checkout@v4
         - name: Install golangci-lint
           run: |
-            go install github.com/golangci/golangci-lint/cmd/golangci-lint@1.56.2
+            go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
             golangci-lint run src/product-catalog/...
 
       
