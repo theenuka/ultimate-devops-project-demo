@@ -41,7 +41,8 @@ jobs:
           run: |
             go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
             export PATH=$PATH:$(go env GOPATH)/bin
-            golangci-lint run src/product-catalog/...
+            cd src/product-catalog
+            golangci-lint run ./...
 
       
     docker:
@@ -66,7 +67,7 @@ jobs:
           uses: docker/build-push-action@v6
           with:
             context: .
-            file: src/product-catalog-service/Dockerfile
+            file: src/product-catalog/Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{ github.run_id}}
 
