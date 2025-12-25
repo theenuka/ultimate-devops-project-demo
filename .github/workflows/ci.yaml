@@ -40,6 +40,7 @@ jobs:
         - name: Install golangci-lint
           run: |
             go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
+            export PATH=$PATH:$(go env GOPATH)/bin
             golangci-lint run src/product-catalog/...
 
       
