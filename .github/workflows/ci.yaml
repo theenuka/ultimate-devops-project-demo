@@ -39,7 +39,7 @@ jobs:
           uses: actions/checkout@v4
         - name: Install golangci-lint
           run: |
-            go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
+            go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.60.1
             export PATH=$PATH:$(go env GOPATH)/bin
             cd src/product-catalog
             golangci-lint run ./...
